@@ -1,0 +1,18 @@
+# Python dependencies for geodesic_perception package
+
+# Core dependencies
+rclpy>=4.0.0
+sensor-msgs>=4.0.0
+geometry-msgs>=4.0.0
+std-msgs>=4.0.0
+example-interfaces>=0.1.0
+
+# Point cloud processing
+open3d>=0.18.0
+numpy>=1.24.0
+
+# GUI
+PyQt6>=6.6.0
+
+# Utilities
+pyyaml>=6.0.1

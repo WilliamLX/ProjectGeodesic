@@ -1,0 +1,30 @@
+# Global Alignment Node Parameters
+
+# Point cloud processing
+voxel_size: 0.005              # Voxel size for downsampling (meters)
+enable_downsampling: true       # Apply voxel downsampling
+enable_denoising: true          # Apply statistical outlier removal
+nb_neighbors: 20                # For statistical outlier removal
+std_ratio: 2.0                  # For statistical outlier removal
+
+# Registration
+max_correspondence_distance: 0.02  # Max distance for ICP correspondence (meters)
+coarse_method: 'pca'                # 'pca' or 'fpfh' for coarse alignment
+icp_iterations: 50                  # Max ICP iterations
+point_to_plane: true                # Use Point-to-Plane ICP (requires normals)
+
+# Template management
+template_path: 'data/templates'     # Path to template storage
+auto_load_template: 'default'       # Template to auto-load on start (empty = none)
+
+# Visualization
+enable_visualization: false         # Publish aligned point cloud for visualization
+publish_aligned_pointcloud: false   # Publish /perception/aligned_pointcloud
+
+# Camera
+camera_topic: '/camera/pointcloud2' # Input point cloud topic
+camera_frame: 'camera'              # Camera TF frame
+
+# Logging
+log_level: 'INFO'                   # DEBUG, INFO, WARN, ERROR
+publish_rate: 10.0                  # Status publish rate (Hz)
