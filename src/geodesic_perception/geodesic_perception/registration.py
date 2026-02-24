@@ -201,11 +201,17 @@ class Registration:
             )
         )
 
+        # Handle Open3D version differences
+        num_iterations = getattr(result, 'num_iteration', 'N/A')
+        if num_iterations == 'N/A':
+            # Open3D 0.19+ uses different attribute names
+            num_iterations = getattr(result, 'iteration', 'N/A')
+
         return RegistrationResult(
             transformation=result.transformation,
             rmse=result.inlier_rmse,
             fitness=result.fitness,
-            num_iterations=result.num_iteration,
+            num_iterations=num_iterations,
             method=method_name
         )
 
@@ -286,11 +292,16 @@ class Registration:
             )
         )
 
+        # Handle Open3D version differences
+        num_iterations = getattr(result, 'num_iteration', 'N/A')
+        if num_iterations == 'N/A':
+            num_iterations = getattr(result, 'iteration', 'N/A')
+
         return RegistrationResult(
             transformation=result.transformation,
             rmse=result.inlier_rmse,
             fitness=result.fitness,
-            num_iterations=result.num_iteration,
+            num_iterations=num_iterations,
             method="Colored ICP"
         )
 
